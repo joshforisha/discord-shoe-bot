@@ -70,7 +70,7 @@ discordClient.on("message", ({ author, content, channel, guild, member }) => {
         return sendError("Not enough arguments")(channel);
       }
     } else if (tokens.length !== action.args.length) {
-      return sendError("Not enough arguments")(channel);
+      return sendError("Wrong number of arguments")(channel);
     }
   }
 

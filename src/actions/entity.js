@@ -3,12 +3,12 @@ import { entities, findEntity, saveEntities } from "../state.js";
 export const actions = [
   {
     command: "entity-add",
-    args: ["name"],
+    args: ["...name"],
     description: "Add an entity *name*",
     adminOnly: true,
-    run: ([name], resolve) => {
+    run: ([...name], resolve) => {
       entities.push({
-        name,
+        name: name.join(" "),
         skills: ["Do anything 1"],
       });
       resolve();
