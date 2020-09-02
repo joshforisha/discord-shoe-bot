@@ -17,7 +17,6 @@ export function sendEntities(channel) {
 
 export function sendError(errorMessage) {
   return (channel) => {
-    console.log(errorMessage, channel);
     channel.send("", {
       embed: {
         color: 0xff5252,

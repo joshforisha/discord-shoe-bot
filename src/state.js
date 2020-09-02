@@ -5,6 +5,7 @@ export let entities = [];
 export function findEntity(entityStart) {
   const ent = entityStart.toLowerCase();
   return new Promise((resolve, reject) => {
+    if (entities.length < 1) return reject("No entities found");
     let index = entities.findIndex(({ name }) => name.toLowerCase() === ent);
     if (index > -1) {
       return resolve(index);
@@ -14,7 +15,6 @@ export function findEntity(entityStart) {
         name.toLowerCase().startsWith(ent) ? [...indices, i] : indices,
       []
     );
-    console.log("index:", index);
     if (index.length > 1) {
       return reject(`Too many entities' names matched "${entityStart}"`);
     }

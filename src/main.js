@@ -67,10 +67,10 @@ discordClient.on("message", ({ author, content, channel, guild, member }) => {
   if ("args" in action) {
     if (action.args.some((a) => a.startsWith("..."))) {
       if (tokens.length < action.args.length) {
-        return sendError(channel)("Not enough arguments");
+        return sendError("Not enough arguments")(channel);
       }
     } else if (tokens.length !== action.args.length) {
-      return sendError(channel)("Not enough arguments");
+      return sendError("Not enough arguments")(channel);
     }
   }
 
@@ -78,7 +78,7 @@ discordClient.on("message", ({ author, content, channel, guild, member }) => {
     .then((send = sendEntities) => {
       send(channel);
     })
-    .catch(sendError(channel));
+    .catch((errorMessage) => sendError(errorMessage)(channel));
 });
 
 discordClient.login(process.env["BOT_TOKEN"]);

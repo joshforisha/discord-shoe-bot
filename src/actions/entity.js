@@ -23,7 +23,7 @@ export const actions = [
     run: ([name], resolve, reject) => {
       findEntity(name)
         .then((e) => {
-          delete entities[e];
+          entities.splice(e, 1);
           resolve();
           saveEntities();
         })
