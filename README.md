@@ -1,3 +1,3 @@
-# RFS Discord Bot
+# Discord Shoe Bot
 
-A self-hostable bot for playing [Roll for Shoes](https://rollforshoes.com) completely within Discord.
+A self-hosted bot for playing [Roll for Shoes](https://rollforshoes.com) completely within Discord
